@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Rocket Demo | Betway Crash Game</title>
+    <meta name="description" content="Play Betway Red Rocket in free demo mode. Try the rocket-themed crash game without using real money.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="game-page">
+<div class="game-hero">
+<div class="game-content">
+<div class="provider-badge">Demo Casino games at Betway</div>
+<h1>Red Rocket Demo</h1>
+<p>Try Betway Red Rocket in demo mode, without using real money.</p>
+</div>
+</div>
+
+<section class="demo-player" aria-label="Red Rocket demo game">
+<header class="player-header">
+<div class="player-brand">
+<img class="betway-logo" data-asset-url="/medialibraries/content.gmgamingsystems.com/Synapse/v2/logo.svg" alt="Betway">
+<span class="player-brand-divider" aria-hidden="true"></span>
+<div class="player-title">
+<h2>Red Rocket Demo</h2>
+<p>FREE DEMO</p>
+</div>
+</div>
+<div class="player-tools">
+<button class="game-exit" id="exit-demo" type="button" aria-label="Close demo" title="Close demo" hidden>&times;</button>
+<button class="fullscreen-toggle" id="fullscreen-demo" type="button" aria-label="View fullscreen" title="View fullscreen" aria-pressed="false" hidden>
+<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
+</button>
+<div class="share-control">
+<button class="share-toggle" id="share-toggle" type="button" aria-label="Share Red Rocket demo" title="Share demo" aria-expanded="false" aria-controls="share-menu">
+<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 12 17 6M7 12l10 6"/><circle cx="5" cy="12" r="3"/><circle cx="19" cy="5" r="3"/><circle cx="19" cy="19" r="3"/></svg>
+</button>
+<div class="share-menu" id="share-menu" aria-label="Share Red Rocket demo" hidden>
+<p>Share this demo</p>
+<a class="share-option" id="share-facebook" target="_blank" rel="noopener noreferrer"><span class="share-icon share-facebook" aria-hidden="true">f</span><span>Facebook</span></a>
+<a class="share-option" id="share-x" target="_blank" rel="noopener noreferrer"><span class="share-icon share-x" aria-hidden="true">X</span><span>X</span></a>
+<a class="share-option" id="share-whatsapp" target="_blank" rel="noopener noreferrer"><span class="share-icon share-whatsapp" aria-hidden="true">wa</span><span>WhatsApp</span></a>
+<a class="share-option" id="share-telegram" target="_blank" rel="noopener noreferrer"><span class="share-icon share-telegram" aria-hidden="true">tg</span><span>Telegram</span></a>
+<button class="share-option" id="copy-share-link" type="button"><span class="share-icon share-copy" aria-hidden="true">+</span><span id="copy-share-label">Copy link</span></button>
+</div>
+</div>
+</div>
+</header>
+<div class="game-stage" id="game-stage" data-game-name="Red Rocket" data-demo-url="https://freeplay.ragingriver.io/redrocket/?freeplay=true&amp;currency=&amp;symbol=ZAR" data-state="idle" aria-busy="false">
+<img class="game-poster" id="game-poster" data-asset-url="/medialibraries/content.gmgamingsystems.com/ToastMessages/27904_SA_RedRocket_ToastPopUp_315x483.png" alt="" aria-hidden="true" fetchpriority="high">
+<iframe id="game-frame" title="Red Rocket demo game" allow="fullscreen" hidden></iframe>
+<div class="player-overlay" id="player-overlay">
+<span class="loading-spinner" aria-hidden="true"></span>
+<p id="game-status" role="status" aria-live="polite">Choose Play demo to start the game.</p>
+<div class="player-actions">
+<button class="game-action game-action-primary" id="launch-demo" type="button">Play demo</button>
+<a class="game-action game-action-secondary" href="https://www.betway.co.za/lobby/crash/game/betway-red-rocket-production?vertical=casino-games" target="_blank" rel="noopener noreferrer">Play real game</a>
+</div>
+</div>
+</div>
+</section>
+
+<div class="content-section">
+<h2>Play Red Rocket Demo Online</h2>
+<p>Launch Betway Red Rocket in demo mode and try the rocket-themed crash game. Explore the free-play experience without using real money.</p>
+</div>
+
+<div class="content-section">
+<h2>About Red Rocket</h2>
+<p>Red Rocket is a Betway crash-style game. Open the demo and follow the instructions in the game to explore its play experience.</p>
+
+<h2>How To Play Red Rocket</h2>
+<ol>
+    <li>Select <strong>Play demo</strong> to load the game.</li>
+    <li>Follow the on-screen instructions to start a round.</li>
+    <li>Explore the demo without using real money.</li>
+</ol>
+
+<h2>Frequently Asked Questions</h2>
+<h3>Can I play Red Rocket for free?</h3>
+<p>Yes. The plugin provides a free-play link for Red Rocket.</p>
+
+<h3>Does the Red Rocket demo use real money?</h3>
+<p>No. The demo URL is configured with free play enabled.</p>
+</div>
+</div>
+
+<script>
+(() => {
+    const gameFrame = document.getElementById("game-frame");
+    const gamePoster = document.getElementById("game-poster");
+    const gameStage = document.getElementById("game-stage");
+    const demoPlayer = document.querySelector(".demo-player");
+    const gameName = gameStage.dataset.gameName;
+    const demoUrl = gameStage.dataset.demoUrl;
+    const playerOverlay = document.getElementById("player-overlay");
+    const gameStatus = document.getElementById("game-status");
+    const launchButton = document.getElementById("launch-demo");
+    const exitButton = document.getElementById("exit-demo");
+    const fullscreenButton = document.getElementById("fullscreen-demo");
+    const shareControl = document.querySelector(".share-control");
+    const shareToggle = document.getElementById("share-toggle");
+    const shareMenu = document.getElementById("share-menu");
+    const copyShareLink = document.getElementById("copy-share-link");
+    const copyShareLabel = document.getElementById("copy-share-label");
+    let loadTimeout;
+
+    const mediaBaseUrl = "https://media.betwayafrica.com/";
+    document.querySelectorAll("img[data-asset-url]").forEach(image => {
+        image.addEventListener("error", () => {
+            console.error("Image asset failed to load:", image.currentSrc || image.src);
+        });
+        image.src = new URL(image.dataset.assetUrl, mediaBaseUrl).href;
+    });
+
+    const encodedPageUrl = encodeURIComponent(window.location.href);
+    const encodedShareText = encodeURIComponent(`Try the ${gameName} demo`);
+    shareToggle.setAttribute("aria-label", `Share ${gameName} demo`);
+    shareToggle.title = `Share ${gameName} demo`;
+    shareMenu.setAttribute("aria-label", `Share ${gameName} demo`);
+    document.getElementById("share-facebook").href =
+        `https://www.facebook.com/sharer/sharer.php?u=${encodedPageUrl}`;
+    document.getElementById("share-x").href =
+        `https://twitter.com/intent/tweet?url=${encodedPageUrl}&text=${encodedShareText}`;
+    document.getElementById("share-whatsapp").href =
+        `https://api.whatsapp.com/send?text=${encodedShareText}%20${encodedPageUrl}`;
+    document.getElementById("share-telegram").href =
+        `https://t.me/share/url?url=${encodedPageUrl}&text=${encodedShareText}`;
+
+    const fullscreenSupported = Boolean(
+        demoPlayer.requestFullscreen || demoPlayer.webkitRequestFullscreen
+    );
+
+    function getFullscreenElement() {
+        return document.fullscreenElement || document.webkitFullscreenElement;
+    }
+
+    function updateFullscreenButton() {
+        const isFullscreen = getFullscreenElement() === demoPlayer;
+        const label = isFullscreen ? "Exit fullscreen" : "View fullscreen";
+        fullscreenButton.setAttribute("aria-pressed", String(isFullscreen));
+        fullscreenButton.setAttribute("aria-label", label);
+        fullscreenButton.title = label;
+    }
+
+    async function toggleFullscreen() {
+        try {
+            if (getFullscreenElement() === demoPlayer) {
+                const exitFullscreen = document.exitFullscreen || document.webkitExitFullscreen;
+                if (exitFullscreen) await exitFullscreen.call(document);
+                return;
+            }
+            const requestFullscreen = demoPlayer.requestFullscreen || demoPlayer.webkitRequestFullscreen;
+            if (requestFullscreen) await requestFullscreen.call(demoPlayer);
+        } catch (error) {
+            console.warn("Unable to toggle fullscreen mode.", error);
+        }
+    }
+
+    function closeFullscreen() {
+        fullscreenButton.hidden = true;
+        if (getFullscreenElement() !== demoPlayer) return;
+        const exitFullscreen = document.exitFullscreen || document.webkitExitFullscreen;
+        if (exitFullscreen) {
+            const result = exitFullscreen.call(document);
+            if (result && typeof result.catch === "function") result.catch(() => {});
+        }
+    }
+
+    fullscreenButton.hidden = true;
+    fullscreenButton.addEventListener("click", toggleFullscreen);
+    exitButton.addEventListener("click", closeFullscreen);
+    document.addEventListener("fullscreenchange", updateFullscreenButton);
+    document.addEventListener("webkitfullscreenchange", updateFullscreenButton);
+    gameFrame.addEventListener("load", () => {
+        if (gameStage.dataset.state !== "idle") {
+            fullscreenButton.hidden = !fullscreenSupported;
+        }
+    });
+
+    function loadDemo() {
+        clearTimeout(loadTimeout);
+        if (window.matchMedia("(max-width: 768px)").matches) {
+            demoPlayer.classList.add("is-mobile-modal");
+            document.body.classList.add("mobile-game-open");
+        }
+        gamePoster.hidden = false;
+        gameFrame.hidden = true;
+        playerOverlay.hidden = false;
+        exitButton.hidden = false;
+        gameStage.dataset.state = "loading";
+        gameStage.setAttribute("aria-busy", "true");
+        gameStatus.textContent = `Loading ${gameName} demo...`;
+        launchButton.disabled = true;
+        launchButton.textContent = "Loading...";
+        loadTimeout = setTimeout(() => {
+            if (gameStage.dataset.state === "loading") {
+                gameStage.dataset.state = "delayed";
+                gameStage.setAttribute("aria-busy", "false");
+                gameStatus.textContent = "The game is taking longer than expected. Please try again.";
+                launchButton.disabled = false;
+                launchButton.textContent = "Try demo again";
+            }
+        }, 20000);
+        gameFrame.src = demoUrl;
+    }
+
+    function closeShareMenu() {
+        shareMenu.hidden = true;
+        shareToggle.setAttribute("aria-expanded", "false");
+    }
+
+    launchButton.addEventListener("click", loadDemo);
+    exitButton.addEventListener("click", () => {
+        clearTimeout(loadTimeout);
+        closeFullscreen();
+        demoPlayer.classList.remove("is-mobile-modal");
+        document.body.classList.remove("mobile-game-open");
+        gameStage.dataset.state = "idle";
+        gameStage.setAttribute("aria-busy", "false");
+        gameFrame.src = "about:blank";
+        gameFrame.hidden = true;
+        gamePoster.hidden = false;
+        playerOverlay.hidden = false;
+        gameStatus.textContent = "Demo closed. Want to play for real? Choose Play real game to continue on Betway.";
+        launchButton.disabled = false;
+        launchButton.textContent = "Play demo";
+        exitButton.hidden = true;
+        launchButton.focus();
+    });
+
+    gameFrame.addEventListener("load", () => {
+        if (gameStage.dataset.state === "idle") return;
+        clearTimeout(loadTimeout);
+        gameStage.dataset.state = "ready";
+        gameStage.setAttribute("aria-busy", "false");
+        gamePoster.hidden = true;
+        gameFrame.hidden = false;
+        playerOverlay.hidden = true;
+        launchButton.disabled = false;
+        launchButton.textContent = "Reload demo";
+        exitButton.hidden = false;
+        fullscreenButton.hidden = !fullscreenSupported;
+    });
+
+    shareToggle.addEventListener("click", () => {
+        const isOpening = shareMenu.hidden;
+        shareMenu.hidden = !isOpening;
+        shareToggle.setAttribute("aria-expanded", String(isOpening));
+        if (isOpening) shareMenu.querySelector("a").focus();
+    });
+
+    document.addEventListener("click", event => {
+        if (!shareControl.contains(event.target)) closeShareMenu();
+    });
+
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && !shareMenu.hidden) {
+            closeShareMenu();
+            shareToggle.focus();
+        }
+    });
+
+    copyShareLink.addEventListener("click", async () => {
+        let copied = false;
+        if (navigator.clipboard && window.isSecureContext) {
+            try {
+                await navigator.clipboard.writeText(window.location.href);
+                copied = true;
+            } catch {
+            }
+        }
+        if (!copied) {
+            const fallbackInput = document.createElement("textarea");
+            fallbackInput.value = window.location.href;
+            fallbackInput.setAttribute("readonly", "");
+            fallbackInput.style.position = "fixed";
+            fallbackInput.style.opacity = "0";
+            document.body.appendChild(fallbackInput);
+            fallbackInput.select();
+            copied = document.execCommand("copy");
+            fallbackInput.remove();
+        }
+        copyShareLabel.textContent = copied ? "Link copied" : "Copy failed";
+        setTimeout(() => {
+            copyShareLabel.textContent = "Copy link";
+        }, 2000);
+    });
+})();
+</script>
+</body>
+</html>

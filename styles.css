@@ -177,14 +177,29 @@
     background: #202020;
 }
 
+.fullscreen-toggle {
+    animation: fullscreenPulse 1.8s ease-in-out infinite;
+}
+
 .fullscreen-toggle svg {
     width: 20px;
     height: 20px;
     fill: none;
     stroke: currentColor;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-width: 1.8;
+    stroke-linecap: square;
+    stroke-linejoin: miter;
+    stroke-width: 2.2;
+}
+
+@keyframes fullscreenPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(0, 102, 255, 0.2);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.08);
+        transform: scale(1.04);
+    }
 }
 
 .player-tools {
